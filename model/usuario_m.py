@@ -1,8 +1,13 @@
 import sqlite3
 
+class Usuario:
+    def __init__(self, nome,idade):
+        self.nome = nome
+        self.idade = idade
+
 class UsuarioModel:
-    def __init__(self, db_name='exemplo.db'):
-        self.conn = sqlite3.connect(db_name)
+    def __init__(self, db_name='exemplo.db'):#caminho do banco
+        self.conn = sqlite3.connect(db_name)#comando que conecta e cria o banco
         self.create_table()
 
     def create_table(self):
