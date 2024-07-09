@@ -3,6 +3,8 @@ import tkinter as tk
 from controler.user_c import UsuarioController
 from model.usuario_m import UsuarioModel
 from view.user_v import UsuarioView
+UsuarioView.check_name()
+print(f"modulo: {__name__}")
 
 if __name__ == "__main__":
     root = tk.Tk()

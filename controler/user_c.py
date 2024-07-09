@@ -17,7 +17,7 @@ class UsuarioController:
             self.view.idade_entry.delete(0, tk.END)
 
     def carregar_usuarios(self):
-        usuarios = self.model.selecionar_usuarios()
+        usuarios = self.model.selecionar_usuarios()#retorna uma lista de tuplas
         for usuario in usuarios:
             self.view.adicionar_usuario_lista(usuario)
 

@@ -37,4 +37,6 @@ class UsuarioView(tk.Frame):
 
     def adicionar_usuario_lista(self, usuario):
         self.usuarios_listbox.insert(tk.END, f"{usuario[1]} ({usuario[2]} anos)")
-
+    @staticmethod
+    def check_name():
+        print(f"modulo: {__name__}")
