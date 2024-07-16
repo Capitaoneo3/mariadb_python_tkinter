@@ -15,9 +15,9 @@ class UsuarioController:
         idade = self.view.get_idade()
         if nome and idade.isdigit():
             self.model.inserir_usuario(nome, int(idade))
-            self.view.adicionar_usuario_lista((None, nome, idade))
             self.view.nome_entry.delete(0, tk.END)
             self.view.idade_entry.delete(0, tk.END)
+            self.carregar_usuarios()
 
     def carregar_usuarios(self):
         usuarios = self.model.selecionar_usuarios()#retorna uma lista de tuplas

@@ -16,8 +16,8 @@ if __name__ == "__main__":
     model = UsuarioModel()
     #view = DeleteView(root)
     #controller = DeleteController(view, model)
-    view = AtualizaView(root)
-    controller = AtualizaController(view, model)
+    view = UsuarioView(root)
+    controller = UsuarioController(view, model)
     root.mainloop()
     model.fechar_conexao()
 
