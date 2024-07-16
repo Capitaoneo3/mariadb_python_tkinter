@@ -17,6 +17,7 @@ class UsuarioController:
             self.model.inserir_usuario(nome, int(idade))
             self.view.nome_entry.delete(0, tk.END)
             self.view.idade_entry.delete(0, tk.END)
+            self.view.usuarios_listbox.delete(0, tk.END)
             self.carregar_usuarios()
 
     def carregar_usuarios(self):
