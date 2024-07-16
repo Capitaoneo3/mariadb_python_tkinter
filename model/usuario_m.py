@@ -2,7 +2,7 @@ import mariadb
 import sys
 
 class UsuarioModel:
-    def __init__(self, db_name='joao_db', user='root', password='', host='localhost', port=3306):
+    def __init__(self, db_name='joao_db', user='joao_gabriel', password='123', host='localhost', port=3306):
         try:
             self.conn = mariadb.connect(
                 user=user,
@@ -47,25 +47,15 @@ class UsuarioModel:
             DELETE FROM usuarios WHERE id = ?
         ''', (id,))
         self.conn.commit()
-
-
     def atualizar_usuario(self,id,nome,idade):
         cursor = self.conn.cursor()
         cursor.execute('''
             UPDATE usuarios
             SET nome = ?, idade = ?
             WHERE id = ?
-        '''(nome,idade,id,))
+        ''',(nome,idade,id,))
         self.conn.commit()
 
     def fechar_conexao(self):
         self.conn.close()
 
-    def atualizar_usuario(self,id,nome,idade):
-        cursor = self.conn.cursor()
-        cursor.execute('''
-            UPDATE usuarios
-            SET nome = ?, idade = ?
-            WHERE id = ?
-        '''(nome,idade,id,))
-        self.conn.commit()
