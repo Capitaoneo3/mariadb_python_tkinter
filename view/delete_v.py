@@ -1,5 +1,6 @@
 import tkinter as tk
 from tkinter import ttk
+from tkinter import messagebox
 
 class DeleteView(tk.Frame):
     def __init__(self, parent):
@@ -30,3 +31,5 @@ class DeleteView(tk.Frame):
     def adicionar_usuario_lista(self, usuario):
         self.usuarios_listbox.insert(tk.END, f"id {usuario[0]} | {usuario[1]} ({usuario[2]} anos)")
 
+    def show_info(self):
+        messagebox.showinfo("Aviso!", "Os campos não podem estar vazios e a idade deve ser digito.")

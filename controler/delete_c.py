@@ -16,6 +16,8 @@ class DeleteController:
             self.model.deletar_usuario(id)
             self.view.usuarios_listbox.delete(0,tk.END)
             self.carregar_usuarios()
+        else:
+            self.view.show_info()
 
     def carregar_usuarios(self):
         usuarios = self.model.selecionar_usuarios()#retorna uma lista de tuplas
