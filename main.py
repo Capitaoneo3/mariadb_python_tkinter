@@ -1,9 +1,11 @@
 import tkinter as tk
 
 from controler.user_c import UsuarioController
+from controler.delete_c import DeleteController
 from model.usuario_m import UsuarioModel
 from view.user_v import UsuarioView
-UsuarioView.check_name()
+from view.delete_v import DeleteView
+
 print(f"modulo: {__name__}")
 
 if __name__ == "__main__":
@@ -12,8 +14,9 @@ if __name__ == "__main__":
     root.geometry("400x300")
 
     model = UsuarioModel()
+    #view = DeleteView(root)
+    #controller = DeleteController(view, model)
     view = UsuarioView(root)
     controller = UsuarioController(view, model)
-
     root.mainloop()
     model.fechar_conexao()

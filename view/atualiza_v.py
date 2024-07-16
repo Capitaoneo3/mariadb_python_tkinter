@@ -8,19 +8,25 @@ class UsuarioView(tk.Frame):
         self.create_widgets()
 
     def create_widgets(self):
-        self.nome_label = ttk.Label(self, text="Nome:")
+        self.nome_label = ttk.Label(self, text="ID:")
+        self.nome_label.grid(row=0, column=0, padx=10, pady=5)
+       
+        self.nome_entry = ttk.Entry(self)
+        self.nome_entry.grid(row=0, column=1, padx=10, pady=5)
+
+        self.nome_label = ttk.Label(self, text="novo Nome:")
         self.nome_label.grid(row=0, column=0, padx=10, pady=5)
        
         self.nome_entry = ttk.Entry(self)
         self.nome_entry.grid(row=0, column=1, padx=10, pady=5)
        
-        self.idade_label = ttk.Label(self, text="Idade:")
+        self.idade_label = ttk.Label(self, text="nova Idade:")
         self.idade_label.grid(row=1, column=0, padx=10, pady=5)
        
         self.idade_entry = ttk.Entry(self)
         self.idade_entry.grid(row=1, column=1, padx=10, pady=5)
        
-        self.adicionar_button = ttk.Button(self, text="Adicionar")
+        self.adicionar_button = ttk.Button(self, text="Atualizar")
         self.adicionar_button.grid(row=2, column=0, columnspan=2, pady=10)
        
         self.usuarios_listbox = tk.Listbox(self)
