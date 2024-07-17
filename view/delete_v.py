@@ -5,9 +5,10 @@ from tkinter import messagebox
 class DeleteView(tk.Frame):
     def __init__(self, parent):
         super().__init__(parent)
+        self.master.geometry("800x400")
         self.pack(fill=tk.BOTH, expand=True)
         self.create_widgets()
-
+        
     def create_widgets(self):
        
         self.id_label = ttk.Label(self, text="ID que você quer deletar:")

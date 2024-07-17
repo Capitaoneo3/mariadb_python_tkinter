@@ -7,7 +7,7 @@ class AtualizaView(tk.Frame):
         super().__init__(parent)
         self.pack(fill=tk.BOTH, expand=True)
         self.create_widgets()
-
+        self.master.geometry("800x400")
     def create_widgets(self):
         self.id_label = ttk.Label(self, text="ID:")
         self.id_label.grid(row=0, column=2, padx=10, pady=5)

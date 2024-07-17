@@ -1,5 +1,12 @@
-    
 import tkinter as tk
+from controler.user_c import UsuarioController
+from controler.delete_c import DeleteController
+from controler.atualiza_c import AtualizaController
+from model.usuario_m import UsuarioModel
+from view.user_v import UsuarioView
+from view.delete_v import DeleteView
+from view.atualiza_v import AtualizaView
+
 
 class MenuView(tk.Frame):
     def __init__(self, parent):
@@ -7,26 +14,26 @@ class MenuView(tk.Frame):
         self.pack(fill=tk.BOTH, expand=True)
         self.create_widgets()
 
-    #view = DeleteView(root)
-    #controller = DeleteController(view, model)
-   
+    def opcao_selecionada(self, opcao):
+        if opcao == "1":
+            self.master.switch_frame(UsuarioView)#switch frame é função do pai. Por que é a tela pai que guarda as telas.
+            self.master.title("adicionar usuário")
+        elif opcao == "2":
+            self.master.switch_frame(AtualizaView)
+            self.master.title("atualizar usuário")
+        elif opcao == "3":
+            self.master.switch_frame(DeleteView)
+            self.master.title("deletar usuário")
 
-    def opcao_selecionada(self,opcao):
-        self.title(f'Opção selecionada: {opcao}')
-
-
-
-    # Função para criar um menu dropdown
-    def criar_menu_dropdown(master):
+    def criar_menu_dropdown(self, master):
         menu_dropdown = tk.Menu(master, tearoff=0)
-        menu_dropdown.add_command(label="Opção 1", command=lambda: opcao_selecionada("Opção 1"))
-        menu_dropdown.add_command(label="Opção 2", command=lambda: opcao_selecionada("Opção 2"))
-        menu_dropdown.add_command(label="Opção 3", command=lambda: opcao_selecionada("Opção 3"))
+        menu_dropdown.add_command(label="adicionar usuário", command=lambda: self.opcao_selecionada("1"))
+        menu_dropdown.add_command(label="atualizar usuário", command=lambda: self.opcao_selecionada("2"))
+        menu_dropdown.add_command(label="deletar usuário", command=lambda: self.opcao_selecionada("3"))
         return menu_dropdown
 
     def create_widgets(self):
-        # Criar um Menubutton para mostrar o menu dropdown
-        mb = tk.Menubutton(self, text="Escolha uma opção", relief=tk.RAISED)
-        mb.menu = self.criar_menu_dropdown(mb)  # Associa o menu dropdown ao Menubutton
-        mb["menu"] = mb.menu  # Define o menu dropdown como o menu do Menubutton
-        mb.pack(anchor="e",pady=12,padx=12)
+        mb = tk.Menubutton(self, text="Menu", relief=tk.RAISED)
+        mb.menu = self.criar_menu_dropdown(mb)
+        mb["menu"] = mb.menu
+        mb.pack(anchor="e", pady=12, padx=12)
